@@ -179,6 +179,8 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
   dX_matlab_order[0] = dX[1];
   dX_matlab_order[1] = dX[0];
 
+  LSMLIB_REAL *extension_mask_dummy;	/* ipa.n */
+  
   /* Carry out FMM calculation */
   error_code = computeExtensionFields2d(
                  distance_function,
@@ -186,6 +188,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
                  phi,
                  mask,
                  source_fields,
+		          extension_mask_dummy,	/* ipa.n */
                  num_ext_fields,
                  spatial_discretization_order,
                  (int*) grid_dims,
